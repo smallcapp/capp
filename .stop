@@ -1,0 +1,14 @@
+#!/bin/bash
+
+main() {
+	local list="jlogd smonitord stimerd" 
+	local root_list="umd"
+
+	killall $list
+	killall $list
+
+	sudo killall $root_list
+	sudo killall $root_list
+}
+
+main "$@"

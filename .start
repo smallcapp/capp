@@ -1,0 +1,21 @@
+#!/bin/bash
+
+main() {
+	./.stop
+
+	./.reload
+
+	../jlogd/jlogd &
+	sleep 1
+
+	../stimerd/stimerd &
+	sleep 1
+
+	../smonitord/smonitord &
+	sleep 1
+
+#	../umd/umd
+#	sleep 1
+}
+
+main "$@"

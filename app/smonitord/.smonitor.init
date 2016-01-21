@@ -1,0 +1,5 @@
+#!/bin/bash
+
+smonitorc=../smonitorc/smonitorc
+
+${smonitorc} insert normal sb "echo sb"

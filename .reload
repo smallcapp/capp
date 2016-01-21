@@ -1,0 +1,25 @@
+#!/bin/bash
+
+main() {
+	local flag="error"
+	local path="/tmp/$(whoami)/appkey"
+#	local flag="*"
+
+#	echo "debug ${flag}" > ${path}/libappkey.key
+
+#	echo "debug ${flag}" > ${path}/jlogger.key
+#	echo "debug ${flag}" > ${path}/jlogd.key
+
+#	echo "debug ${flag}" > ${path}/stimerc.key
+#	echo "debug ${flag}" > ${path}/stimerd.key
+
+	echo "debug ${flag}" > ${path}/smonitorc.key
+	echo "debug ${flag}" > ${path}/smonitord.key
+
+#	echo "debug ${flag}" > ${path}/umc.key
+#	echo "debug ${flag}" > ${path}/umd.key
+
+	../../app/appkey/appkey reload
+}
+
+main "$@"

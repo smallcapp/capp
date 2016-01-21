@@ -1,0 +1,10 @@
+#!/bin/bash
+
+main() {
+	local ip="$1"
+
+	ip neigh | grep ${ip} | awk '{print $5}'
+}
+
+main "$@"
+

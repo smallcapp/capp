@@ -1,0 +1,10 @@
+#!/bin/bash
+
+main() {
+	echo "debug ok|error" > /tmp/$(whoami)/appkey/umc.key
+	echo "debug *|-timeout|-packet" > /tmp/$(whoami)/appkey/umd.key
+
+	../../app/appkey/appkey reload
+}
+
+main "$@"
