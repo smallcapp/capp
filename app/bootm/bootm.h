@@ -42,6 +42,7 @@
 #define AT_ENV_PRODUCT_VERSION  21
 #define AT_ENV_PRODUCT_VENDOR   22
 #define AT_ENV_PRODUCT_COMPANY  23
+#define AT_ENV_PRODUCT_MANAGE   24
 
 #define AT_ENV_OEM_MAC          33
 #define AT_ENV_OEM_SN           34
@@ -49,6 +50,7 @@
 #define AT_ENV_OEM_VERSION      36
 #define AT_ENV_OEM_VENDOR       37
 #define AT_ENV_OEM_COMPANY      38
+#define AT_ENV_OEM_MANAGE       39
 
 #define AT_ENV_PRIVATE          40
 #define AT_ENV_PTEST            (AT_ENV_COUNT-1)
@@ -73,18 +75,21 @@
 #define AT_NAME_RT                  "rt"
 #define AT_NAME_NA                  "na"
 #define AT_NAME_UT                  "ut"
+
 #define AT_NAME_PCBA_VENDOR         "pcba.vendor"
 #define AT_NAME_PCBA_COMPANY        "pcba.company"
 #define AT_NAME_PCBA_MODEL          "pcba.model"
 #define AT_NAME_PCBA_MAC            "pcba.mac"
 #define AT_NAME_PCBA_SN             "pcba.sn"
 #define AT_NAME_PCBA_VERSION        "pcba.version"
+
 #define AT_NAME_PRODUCT_VENDOR      "product.vendor"
 #define AT_NAME_PRODUCT_COMPANY     "product.company"
 #define AT_NAME_PRODUCT_MODEL       "product.model"
 #define AT_NAME_PRODUCT_MAC         "product.mac"
 #define AT_NAME_PRODUCT_SN          "product.sn"
 #define AT_NAME_PRODUCT_VERSION     "product.version"
+#define AT_NAME_PRODUCT_MANAGE      "product.manage"
 
 #define AT_NAME_OEM_VENDOR          "oem.vendor"
 #define AT_NAME_OEM_COMPANY         "oem.company"
@@ -92,6 +97,8 @@
 #define AT_NAME_OEM_MAC             "oem.mac"
 #define AT_NAME_OEM_SN              "oem.sn"
 #define AT_NAME_OEM_VERSION         "oem.version"
+#define AT_NAME_OEM_MANAGE          "oem.manage"
+
 #define AT_NAME_PRIVATE             "idx%d"
 
 #define println(fmt, args...)   printf(fmt "\n", ##args)

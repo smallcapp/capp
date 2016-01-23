@@ -1917,26 +1917,32 @@ at_mark_add(int idx, int value)
     /* end */
 
 enum {
-    __at_info_pcba_model        = 0,
-    __at_info_pcba_version      = 1,
-    __at_info_product_vendor    = 2,
-    __at_info_product_company   = 3,
-    __at_info_product_model     = 4,
-    __at_info_product_mac       = 5,
-    __at_info_product_sn        = 6,
-    __at_info_product_lms       = 7,
-    __at_info_product_version   = 8,
-
-    __at_info_oem_vendor        = 10,
-    __at_info_oem_company       = 11,
-    __at_info_oem_model         = 12,
-    __at_info_oem_mac           = 13,
-    __at_info_oem_sn            = 14,
-    __at_info_oem_lms           = 15,
-    __at_info_oem_version       = 16,
+    __at_info_pcba_vendor     = 0,
+    __at_info_pcba_company    = 1,
+    __at_info_pcba_model      = 2,
+    __at_info_pcba_mac        = 3,
+    __at_info_pcba_sn         = 4,
+    __at_info_pcba_version    = 5,
     
-    __at_info_idx_max           = 16,
-    __at_info_block_named_count = (1 + __at_info_idx_max/AT_INFO_COUNT_PER_BLOCK),
+    __at_info_product_vendor  = 6,
+    __at_info_product_company = 7,
+    __at_info_product_model   = 8,
+    __at_info_product_mac     = 9,
+    __at_info_product_sn      = 10,
+    __at_info_product_manage  = 11,
+    __at_info_product_version = 12,
+    
+    __at_info_oem_vendor      = 13,
+    __at_info_oem_company     = 14,
+    __at_info_oem_model       = 15,
+    __at_info_oem_mac         = 16,
+    __at_info_oem_sn          = 17,
+    __at_info_oem_manage      = 18,
+    __at_info_oem_version     = 19,
+
+    ____at_info_idx_max,
+    __at_info_idx_max             = ____at_info_idx_max - 1,
+    __at_info_block_named_count   = (1 + __at_info_idx_max/AT_INFO_COUNT_PER_BLOCK),
 };
 
 static inline char *
@@ -1945,24 +1951,29 @@ at_info_get(int idx)
     return at_info(idx);
 }
 
-#define AT_INFO_OPS_NAMES_COMMON            \
-    __AT_INFO_OPS("pcba/model",     0),     \
-    __AT_INFO_OPS("pcba/version",   1),     \
-    __AT_INFO_OPS("product/vendor", 2),     \
-    __AT_INFO_OPS("product/company",3),     \
-    __AT_INFO_OPS("product/model",  4),     \
-    __AT_INFO_OPS("product/mac",    5),     \
-    __AT_INFO_OPS("product/sn",     6),     \
-    __AT_INFO_OPS("product/lms",    7),     \
-    __AT_INFO_OPS("product/version",8),     \
-                                            \
-    __AT_INFO_OPS("oem/vendor",     10),    \
-    __AT_INFO_OPS("oem/company",    11),    \
-    __AT_INFO_OPS("oem/model",      12),    \
-    __AT_INFO_OPS("oem/mac",        13),    \
-    __AT_INFO_OPS("oem/sn",         14),    \
-    __AT_INFO_OPS("oem/lms",        15),    \
-    __AT_INFO_OPS("oem/version",    16)     \
+#define AT_INFO_OPS_NAMES_COMMON    \
+    __AT_INFO_OPS("pcba/vendor",      __at_info_pcba_vendor),       \
+    __AT_INFO_OPS("pcba/company",     __at_info_pcba_company),      \
+    __AT_INFO_OPS("pcba/model",       __at_info_pcba_model),        \
+    __AT_INFO_OPS("pcba/mac",         __at_info_pcba_mac),          \
+    __AT_INFO_OPS("pcba/sn",          __at_info_pcba_sn),           \
+    __AT_INFO_OPS("pcba/version",     __at_info_pcba_version),      \
+                                                                    \
+    __AT_INFO_OPS("product/vendor",   __at_info_product_vendor),    \
+    __AT_INFO_OPS("product/company",  __at_info_product_company),   \
+    __AT_INFO_OPS("product/model",    __at_info_product_model),     \
+    __AT_INFO_OPS("product/mac",      __at_info_product_mac),       \
+    __AT_INFO_OPS("product/sn",       __at_info_product_sn),        \
+    __AT_INFO_OPS("product/manage",   __at_info_product_manage),    \
+    __AT_INFO_OPS("product/version",  __at_info_product_version),   \
+                                                                    \
+    __AT_INFO_OPS("oem/vendor",       __at_info_oem_vendor),        \
+    __AT_INFO_OPS("oem/company",      __at_info_oem_company),       \
+    __AT_INFO_OPS("oem/model",        __at_info_oem_model),         \
+    __AT_INFO_OPS("oem/mac",          __at_info_oem_mac),           \
+    __AT_INFO_OPS("oem/sn",           __at_info_oem_sn),            \
+    __AT_INFO_OPS("oem/manage",       __at_info_oem_manage),        \
+    __AT_INFO_OPS("oem/version",      __at_info_oem_version)        \
     /* end */
 
 #ifdef __BOOT__
@@ -1984,12 +1995,6 @@ at_info_get(int idx)
     /* end */
 
 #define AT_INFO_OPS_IDX     \
-    __AT_INFO_OPS_IDX(9),   \
-                            \
-    __AT_INFO_OPS_IDX(17),  \
-    __AT_INFO_OPS_IDX(18),  \
-    __AT_INFO_OPS_IDX(19),  \
-                            \
     __AT_INFO_OPS_IDX(20),  \
     __AT_INFO_OPS_IDX(21),  \
     __AT_INFO_OPS_IDX(22),  \
