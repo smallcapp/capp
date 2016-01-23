@@ -1929,7 +1929,7 @@ enum {
     __at_info_product_model   = 8,
     __at_info_product_mac     = 9,
     __at_info_product_sn      = 10,
-    __at_info_product_manage  = 11,
+    __at_info_product_manager = 11,
     __at_info_product_version = 12,
     
     __at_info_oem_vendor      = 13,
@@ -1937,7 +1937,7 @@ enum {
     __at_info_oem_model       = 15,
     __at_info_oem_mac         = 16,
     __at_info_oem_sn          = 17,
-    __at_info_oem_manage      = 18,
+    __at_info_oem_manager     = 18,
     __at_info_oem_version     = 19,
 
     ____at_info_idx_max,
@@ -1964,7 +1964,7 @@ at_info_get(int idx)
     __AT_INFO_OPS("product/model",    __at_info_product_model),     \
     __AT_INFO_OPS("product/mac",      __at_info_product_mac),       \
     __AT_INFO_OPS("product/sn",       __at_info_product_sn),        \
-    __AT_INFO_OPS("product/manage",   __at_info_product_manage),    \
+    __AT_INFO_OPS("product/manager",  __at_info_product_manager),   \
     __AT_INFO_OPS("product/version",  __at_info_product_version),   \
                                                                     \
     __AT_INFO_OPS("oem/vendor",       __at_info_oem_vendor),        \
@@ -1972,7 +1972,7 @@ at_info_get(int idx)
     __AT_INFO_OPS("oem/model",        __at_info_oem_model),         \
     __AT_INFO_OPS("oem/mac",          __at_info_oem_mac),           \
     __AT_INFO_OPS("oem/sn",           __at_info_oem_sn),            \
-    __AT_INFO_OPS("oem/manage",       __at_info_oem_manage),        \
+    __AT_INFO_OPS("oem/manager",      __at_info_oem_manager),       \
     __AT_INFO_OPS("oem/version",      __at_info_oem_version)        \
     /* end */
 

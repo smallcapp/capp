@@ -42,7 +42,7 @@
 #define AT_ENV_PRODUCT_VERSION  21
 #define AT_ENV_PRODUCT_VENDOR   22
 #define AT_ENV_PRODUCT_COMPANY  23
-#define AT_ENV_PRODUCT_MANAGE   24
+#define AT_ENV_PRODUCT_MANAGER  24
 
 #define AT_ENV_OEM_MAC          33
 #define AT_ENV_OEM_SN           34
@@ -50,7 +50,7 @@
 #define AT_ENV_OEM_VERSION      36
 #define AT_ENV_OEM_VENDOR       37
 #define AT_ENV_OEM_COMPANY      38
-#define AT_ENV_OEM_MANAGE       39
+#define AT_ENV_OEM_MANAGER      39
 
 #define AT_ENV_PRIVATE          40
 #define AT_ENV_PTEST            (AT_ENV_COUNT-1)
@@ -89,7 +89,7 @@
 #define AT_NAME_PRODUCT_MAC         "product.mac"
 #define AT_NAME_PRODUCT_SN          "product.sn"
 #define AT_NAME_PRODUCT_VERSION     "product.version"
-#define AT_NAME_PRODUCT_MANAGE      "product.manage"
+#define AT_NAME_PRODUCT_MANAGER     "product.manager"
 
 #define AT_NAME_OEM_VENDOR          "oem.vendor"
 #define AT_NAME_OEM_COMPANY         "oem.company"
@@ -97,7 +97,7 @@
 #define AT_NAME_OEM_MAC             "oem.mac"
 #define AT_NAME_OEM_SN              "oem.sn"
 #define AT_NAME_OEM_VERSION         "oem.version"
-#define AT_NAME_OEM_MANAGE          "oem.manage"
+#define AT_NAME_OEM_MANAGER         "oem.manager"
 
 #define AT_NAME_PRIVATE             "idx%d"
 
