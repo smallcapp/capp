@@ -82,6 +82,18 @@ static int cmdsleep = CMDSLEEP;
 static unsigned char custom[AT_OTP_SIZE];
 static unsigned char private[AT_OTP_SIZE];
 
+static inline char *
+get_version(void)
+{
+    static char version[1+OS_LINE_LEN];
+
+    if (false==is_good_string(version)) {
+        os_sfgets(version, OS_LINE_LEN, "/etc/.version");
+    }
+    
+    return version;
+}
+
 #if 1==AT_LTEFI_VERSION
 static char *
 get_mac(void)
@@ -168,6 +180,18 @@ set_na(int NA)
     os_system("bootm na=%d", NA);
 }
 
+static inline char *
+get_oem(void)
+{
+    static char vendor[1+OS_LINE_LEN];
+
+    if (false==is_good_string(vendor)) {
+        os_spgets(vendor, OS_LINE_LEN, "bootm oem.vendor");
+    }
+    
+    return vendor;
+}
+
 #define __prepare() os_do_nothing()
 #elif 2==AT_LTEFI_VERSION
 #define get_mac()   at_info_get(__at_info_product_mac)
@@ -176,6 +200,7 @@ set_na(int NA)
 #define get_rt()    at_mark_get(__at_mark_runtime)
 #define get_na()    at_mark_get(__at_mark_noauth)
 #define set_na(_na) at_mark_set(__at_mark_noauth, _na)
+#define get_oem()   at_info_get(__at_info_oem_vendor)
 
 static void
 __prepare(void)
@@ -346,11 +371,28 @@ do_report(int hack)
 
     err = os_v_spgets(line, OS_LINE_LEN, 
             "curl"
-                " -d '{\"mac\":\"%s\",\"mid\":%d,\"psn\":%d,\"error\":%d}'"
+                " -d '{"
+                    "\"version\":\"%s\","
+                    "\"oem\":\"%s\","
+                    "\"na\":%d,"
+                    "\"mac\":\"%s\","
+                    "\"mid\":%d,"
+                    "\"psn\":%d,"
+                    "\"rt\":%d,"
+                    "\"na\":%d,"
+                    "\"error\":%d"
+                "}'"
                 " -k --cert %s --key %s"
                 " -u %s:%s"
                 " -s https://%s:%s/" PLT_SERVICE_REPORT,
-            get_mac(), get_mid(), get_psn(), hack,
+            get_version(),
+                get_oem(),
+                get_mac(),
+                get_mid(),
+                get_psn(),
+                get_rt(),
+                get_na(),
+                hack,
             cert, key,
             oem_lss_user, oem_lss_password,
             oem_lss_server, oem_lss_port);
@@ -417,11 +459,25 @@ do_register(void)
 
     err = os_v_spgets(line, OS_LINE_LEN, 
             "curl"
-                " -d '{\"mac\":\"%s\",\"mid\":%d,\"psn\":%d}'"
+                " -d '{"
+                    "\"version\":\"%s\","
+                    "\"oem\":\"%s\","
+                    "\"mac\":\"%s\","
+                    "\"mid\":%d,"
+                    "\"psn\":%d,"
+                    "\"rt\":%d,"
+                    "\"na\":%d"
+                "}'"
                 " -k --cert %s --key %s"
                 " -u %s:%s"
                 " -s https://%s:%s/" PLT_SERVICE_REGISTER,
-            get_mac(), get_mid(), get_psn(),
+            get_version(), 
+                get_oem(), 
+                get_mac(), 
+                get_mid(), 
+                get_psn(),
+                get_rt(), 
+                get_na(), 
             cert, key,
             oem_lss_user, oem_lss_password,
             oem_lss_server, oem_lss_port);
@@ -494,11 +550,27 @@ do_auth(void)
     
     err = os_v_spgets(line, OS_LINE_LEN, 
             "curl"
-                " -d '{\"mac\":\"%s\",\"mid\":%d,\"psn\":%d,\"guid\":\"%s\"}'"
+                " -d '{"
+                    "\"version\":\"%s\","
+                    "\"oem\":\"%s\","
+                    "\"mac\":\"%s\","
+                    "\"mid\":%d,"
+                    "\"psn\":%d,"
+                    "\"rt\":%d,"
+                    "\"na\":%d,"
+                    "\"guid\":\"%s\""
+                "}'"
                 " -k --cert %s --key %s"
                 " -u %s:%s"
                 " -s https://%s:%s/" PLT_SERVICE_AUTH,
-            get_mac(), get_mid(), get_psn(), __otp_string(private),
+            get_version(),
+                get_oem(),
+                get_mac(),
+                get_mid(),
+                get_psn(),
+                get_rt(),
+                get_na(),
+                __otp_string(private),
             cert, key,
             oem_lss_user, oem_lss_password,
             oem_lss_server, oem_lss_port);
