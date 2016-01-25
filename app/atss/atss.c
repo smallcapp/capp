@@ -374,7 +374,6 @@ do_report(int hack)
                 " -d '{"
                     "\"version\":\"%s\","
                     "\"oem\":\"%s\","
-                    "\"na\":%d,"
                     "\"mac\":\"%s\","
                     "\"mid\":%d,"
                     "\"psn\":%d,"
