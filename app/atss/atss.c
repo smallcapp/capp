@@ -534,6 +534,7 @@ do_auth(void)
     char line[1+OS_LINE_LEN] = {0};
     char cert[1+AT_SECOOKIE_LEN] = {0};
     char key[1+AT_SECOOKIE_LEN] = {0};
+    byte guid[AT_OTP_SIZE];
     jobj_t obj = NULL;
     int err = 0, code = 0;
 
@@ -595,8 +596,12 @@ do_auth(void)
         debug_error("no-found json guid");
         err = -EFAKESEVER; goto error;
     }
-    else if (NULL==__otp_get_bystring(private, jobj_get_string(jguid))) {
+    else if (NULL==__otp_get_bystring(guid, jobj_get_string(jguid))) {
         debug_error("bad json guid");
+        err = -EFAKESEVER; goto error;
+    }
+    else if (false==__otp_eq(guid, private)) {
+        debug_error("json guid not match");
         err = -EFAKESEVER; goto error;
     }
 
@@ -704,11 +709,13 @@ do_cmd(void)
         err = -EFAKESEVER; goto error;
     }
 
+#if 0
     code = jcheck(obj);
     if (code) {
         debug_error("check json failed");
         err = -EFAKESEVER; goto error;
     }
+#endif
 
     jobj_t jsleep = jobj_get(obj, "sleep");
     if (jsleep) {
