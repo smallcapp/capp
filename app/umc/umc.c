@@ -247,7 +247,7 @@ cmd_tag(int argc, char *argv[])
 {
     char *mac = argv[0];
 
-    if (2!=argc || 3!=argc) {
+    if (2!=argc && 3!=argc) {
         return -EFORMAT;
     }
     else if (false==is_good_macstring(mac)) {
