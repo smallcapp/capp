@@ -546,7 +546,7 @@ __simpile_c_handle(
         }
 
         if (0==simpile_res_err && simpile_res_len && is_good_string(simpile_res_buf)) {
-            os_println("%s", simpile_res_buf);
+            os_printf("%s", simpile_res_buf);
         }
 
         debug_trace("action:%s, error:%d, len:%d, buf:%s", 

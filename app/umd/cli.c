@@ -214,7 +214,7 @@ show_user_byjson(char *json)
         return -ENOEXIST;
     }
     
-    simpile_res_sprintf("%s", jobj_string(juser));
+    simpile_res_sprintf("%s" __crlf, jobj_string(juser));
     jobj_put(juser);
     jobj_put(obj);
     
