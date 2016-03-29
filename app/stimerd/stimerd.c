@@ -91,13 +91,10 @@ __insert(struct stimer *entry)
         return -EKEYNULL;
     }
 
-    int hash(struct mlist_node *node)
-    {
-        return __hash(entry->name);
-    }
-    
     struct mlist_node *node = 
-        __mlist_insert(&stimerd.head.mlist, &entry->node.mlist, hash);
+        __mlist_insert(&stimerd.head.mlist, &entry->node.mlist, lanmbda(int, (struct mlist_node *node) {
+            return __hash(entry->name);
+        }));
 
     return node?0:-EINLIST;
 }
@@ -121,19 +118,15 @@ __get(char *name)
         return NULL;
     }
 
-    int hash(void)
-    {
-        return __hash(name);
-    }
-    
-    bool eq(struct mlist_node *node)
-    {
-        struct stimer *entry = __mlist_entry(node);
-        
-        return 0==os_stracmp(entry->name, name);
-    }
-
-    struct mlist_node *node = mlist_find(&stimerd.head.mlist, hash, eq);
+    struct mlist_node *node = mlist_find(&stimerd.head.mlist, 
+        lanmbda(int, (void) {
+            return __hash(name);
+        }), 
+        lanmbda(bool, (struct mlist_node *node) {
+            struct stimer *entry = __mlist_entry(node);
+            
+            return 0==os_stracmp(entry->name, name);
+        }));
     if (NULL==node) {
         return NULL;
     }
@@ -144,14 +137,11 @@ __get(char *name)
 static int
 __foreach(multi_value_t (*cb)(struct stimer *entry))
 {
-    multi_value_t foreach(struct mlist_node *node)
-    {
+    return mlist_foreach(&stimerd.head.mlist, lanmbda(multi_value_t, (struct mlist_node *node){
         struct stimer *entry = __mlist_entry(node);
 
         return (*cb)(entry);
-    }
-    
-    return mlist_foreach(&stimerd.head.mlist, foreach);
+    }));
 }
 
 static struct stimer *
@@ -356,8 +346,7 @@ handle_show(char *args)
     
     simpile_res_sprintf("#name delay interval limit triggers left command" __crlf);
     
-    multi_value_t cb(struct stimer *entry)
-    {
+    __foreach(lanmbda(multi_value_t, (struct stimer *entry) {
         if (NULL==name || 0==os_stracmp(entry->name, name)) {
             show(entry);
 
@@ -365,9 +354,7 @@ handle_show(char *args)
         }
 
         return mv2_OK;
-    }
-    
-    __foreach(cb);
+    }));
     
     if (empty) {
         simpile_res_clear();

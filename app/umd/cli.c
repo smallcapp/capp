@@ -292,12 +292,9 @@ handle_gc(char *args)
 {
     time_t now = time(NULL);
     
-    multi_value_t cb(struct um_user *user)
-    {
+    um_user_foreach_safe(lanmbda(multi_value_t, (struct um_user *user) {
         return umd_gc(user, now);
-    }
-    
-    um_user_foreach_safe(cb);
+    }));
     
     return 0;
 }

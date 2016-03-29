@@ -178,14 +178,11 @@ auth_cb(struct um_user *user)
 static int
 reauth_cb(struct um_user *user)
 {
-    int cb(jobj_t obj)
-    {
+    return __cb(user, "reauth", lanmbda(int, (jobj_t obj) {
         update_limit(user, obj);
 
         return 0;
-    }
-    
-    return __cb(user, "reauth", cb);
+    }));
 }
 
 static int
@@ -1230,31 +1227,25 @@ match_user(struct um_user *user, struct um_user_filter *filter)
 int
 um_user_delby(struct um_user_filter *filter)
 {
-    multi_value_t cb(struct um_user *user)
-    {
+    return um_user_foreach_safe(lanmbda(multi_value_t, (struct um_user *user) {
         if (match_user(user, filter)) {
             user_delete(user);
         }
 
         return mv2_OK;
-    }
-    
-    return um_user_foreach_safe(cb);
+    }));
 }
 
 int
 um_user_getby(struct um_user_filter *filter, um_get_f *get)
 {
-    multi_value_t cb(struct um_user *user)
-    {
+    return um_user_foreach(lanmbda(multi_value_t, (struct um_user *user) {
         if (match_user(user, filter)) {
             return (*get)(user);
         } else {
             return mv2_OK;
         }
-    }
-    
-    return um_user_foreach(cb);
+    }));
 }
 
 /******************************************************************************/

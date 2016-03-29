@@ -99,62 +99,37 @@ struct init_action {
     "--------------------------------------------------"    "\n" \
     /* end */
 
-static struct init_action lastrc = {
-    .command    = "/etc/init.d/rc.last",
-    .terminal   = "",
-    .action_type= ONCE | STATICACT,
-    .next       = NULL,
-};
+#define capp_action(_command, _action_type) { \
+    .command    = _command,     \
+    .terminal   = "",           \
+    .action_type= _action_type, \
+}
 
+static struct init_action capp[] = {
+    capp_action("/bin/busybox jlogd",       RESPAWN | STATICACT),
+    capp_action("/bin/busybox atrt",        RESPAWN | STATICACT),
+    capp_action("/bin/busybox atss",        RESPAWN | STATICACT),
+    capp_action("/bin/busybox smonitord",   RESPAWN | STATICACT),
+    capp_action("/bin/busybox stimerd",     RESPAWN | STATICACT),
 #ifndef NO_UM
-static struct init_action um = {
-    .command    = "/bin/umd",
-    .terminal   = "",
-    .action_type= RESPAWN | STATICACT,
-    .next       = &lastrc,
-};
+    capp_action("/bin/busybox umd",         RESPAWN | STATICACT),
 #endif
-
-static struct init_action timer = {
-    .command    = "/bin/stimerd",
-    .terminal   = "",
-    .action_type= RESPAWN | STATICACT,
-#ifdef NO_UM
-    .next       = &lastrc,
-#else // um
-    .next       = &um,
-#endif
+    
+    capp_action("/etc/init.d/rc.last",      ONCE | STATICACT),
 };
 
-static struct init_action monitor = {
-    .command    = "/bin/smonitord",
-    .terminal   = "",
-    .action_type= RESPAWN | STATICACT,
-    .next       = &timer,
-};
+static struct init_action *init_action_list = &capp[0];
 
-static struct init_action atss = {
-    .command    = "/bin/atss",
-    .terminal   = "",
-    .action_type= RESPAWN | STATICACT,
-    .next       = &monitor,
-};
+static inline void
+capp_action_init(void)
+{
+    int i;
 
-static struct init_action atrt = {
-    .command    = "/bin/atrt",
-    .terminal   = "",
-    .action_type= RESPAWN | STATICACT,
-    .next       = &atss,
-};
+    for (i=0; i<sizeof(capp)/sizeof(capp[0]) - 1; i++) {
+        capp[i].next = &capp[i+1];
+    }
+}
 
-static struct init_action jlog = {
-    .command    = "/bin/jlogd",
-    .terminal   = "",
-    .action_type= RESPAWN | STATICACT,
-    .next       = &atrt,
-};
-
-static struct init_action *init_action_list = &jlog;
 #else
 static struct init_action *init_action_list = NULL;
 #endif
@@ -944,6 +919,10 @@ int init_main(int argc UNUSED_PARAM, char **argv)
 		 * SIGINT on CAD so we can shut things down gracefully... */
 		reboot(RB_DISABLE_CAD); /* misnomer */
 	}
+    
+#ifdef CAPP
+    capp_action_init();
+#endif
 
 	/* Figure out where the default console should be */
 	console_init();

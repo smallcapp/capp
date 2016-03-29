@@ -193,15 +193,12 @@ timer_server_handle(simpile_server_t *server)
     time_t now = time(NULL);
     int i;
     
-    multi_value_t cb(struct um_user *user)
-    {
-        return timer_handle(user, now);
-    }
-    
     for (i=0; i<times; i++) {
         umd.ticks++;
         
-        um_user_foreach_safe(cb);
+        um_user_foreach_safe(lanmbda(multi_value_t, (struct um_user *user) {
+            return timer_handle(user, now);
+        }));
     }
 
     return 0;

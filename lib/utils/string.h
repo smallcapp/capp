@@ -832,31 +832,23 @@ __symbol_push_string(symbol_table_t *table, const char *string)
     uint32_t len = 0;
     uint32_t hash = __string_BKDR(string, &len);
 
-    int data_hash(void)
-    {
-        return hash & (table->size - 1);
-    }
-    
-    bool eq(struct mlist_node *node)
-    {
-        return __symbol_eq(__symbol_entry(node), string, false, len, hash);
-    }
-    
-    int node_hash(struct mlist_node *node)
-    {
-        symbol_t *sym = __symbol_entry(node);
-        
-        return sym->s.hash & (table->size - 1);
-    }
-    
-    struct mlist_node *new(void)
-    {
-        symbol_t *sym = __symbol_string_new(string);
+    return __symbol_insert(table, 
+        lanmbda(int, (void) {
+            return hash & (table->size - 1);
+        }), 
+        lanmbda(int, (struct mlist_node *node) {
+            symbol_t *sym = __symbol_entry(node);
+            
+            return sym->s.hash & (table->size - 1);
+        }), 
+        lanmbda(bool, (struct mlist_node *node) {
+            return __symbol_eq(__symbol_entry(node), string, false, len, hash);
+        }), 
+        lanmbda(struct mlist_node *, (void) {
+            symbol_t *sym = __symbol_string_new(string);
 
-        return sym?&sym->node:NULL;
-    }
-
-    return __symbol_insert(table, data_hash, node_hash, eq, new);
+            return sym?&sym->node:NULL;
+        }));
 }
 
 static inline symbol_t *
@@ -864,31 +856,23 @@ __symbol_push_binary(symbol_table_t *table, void *binary, uint32_t len)
 {
     uint32_t hash = __binary_bkdr(binary, len);
 
-    int data_hash(void)
-    {
-        return hash & (table->size - 1);
-    }
-    
-    bool eq(struct mlist_node *node)
-    {
-        return __symbol_eq(__symbol_entry(node), binary, true, len, hash);
-    }
-    
-    int node_hash(struct mlist_node *node)
-    {
-        symbol_t *sym = __symbol_entry(node);
-        
-        return sym->s.hash & (table->size - 1);
-    }
-    
-    struct mlist_node *new(void)
-    {
-        symbol_t *sym = __symbol_binary_new(binary, len);
+    return __symbol_insert(table, 
+        lanmbda(int, (void) {
+            return hash & (table->size - 1);
+        }), 
+        lanmbda(int, (struct mlist_node *node) {
+            symbol_t *sym = __symbol_entry(node);
+            
+            return sym->s.hash & (table->size - 1);
+        }), 
+        lanmbda(bool, (struct mlist_node *node) {
+            return __symbol_eq(__symbol_entry(node), binary, true, len, hash);
+        }), 
+        lanmbda(struct mlist_node *, (void) {
+            symbol_t *sym = __symbol_binary_new(binary, len);
 
-        return sym?&sym->node:NULL;
-    }
-    
-    return __symbol_insert(table, data_hash, node_hash, eq, new);
+            return sym?&sym->node:NULL;
+        }));
 }
 
 static inline symbol_t *
@@ -922,12 +906,9 @@ symbol_push_binary(symbol_table_t *table, void *binary, uint32_t len)
 static inline int
 symbol_foreach(symbol_table_t *table, multi_value_t (*cb)(symbol_t *sym))
 {
-    multi_value_t node_cb(struct mlist_node *node)
-    {
+    return mlist_foreach(table, lanmbda(int, (struct mlist_node *node) {
         return (*cb)(__symbol_entry(node));
-    }
-    
-    return mlist_foreach(table, node_cb);
+    }));
 }
 
 struct string_cursor {

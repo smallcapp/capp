@@ -44,6 +44,8 @@
 #define __BOOL(_x)      ((BOOL)!!(_x))
 #define __bool(_x)      __BOOL(_x)
 
+#define lanmbda(_type, _body)   ({ _type _lanmbda _body _lanmbda; })
+
 #if defined(LP64) || defined(ILP64) || defined(LLP64)
 #define OS64            1
 #else
