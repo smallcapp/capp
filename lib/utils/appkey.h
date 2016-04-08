@@ -1,5 +1,5 @@
-#ifndef __APPKEY_H_4DCB6A57D69734A56298406D6DF398AA__
-#define __APPKEY_H_4DCB6A57D69734A56298406D6DF398AA__
+#ifndef __LIB_UTILS_APPKEY_H__
+#define __LIB_UTILS_APPKEY_H__
 /******************************************************************************/
 typedef unsigned int appkey_t;
 
@@ -87,4 +87,4 @@ appkey_var_set(appkey_var_t *var, unsigned int value)
     return appkey_set(var->id, value);
 }
 /******************************************************************************/
-#endif /* __APPKEY_H_4DCB6A57D69734A56298406D6DF398AA__ */
+#endif /* __LIB_UTILS_APPKEY_H__ */

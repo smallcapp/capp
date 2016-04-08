@@ -1,5 +1,5 @@
-#ifndef __ERRNO_H_C4F00CBE99389CDDE88C03900D7FC85A__
-#define __ERRNO_H_C4F00CBE99389CDDE88C03900D7FC85A__
+#ifndef __LIB_UTILS_ERRNO_H__
+#define __LIB_UTILS_ERRNO_H__
 /******************************************************************************/
 #ifdef __BOOT__
 #define	EPERM		 1	/* Operation not permitted */
@@ -219,4 +219,4 @@ shell_error(int err)
     return (err<0)?-err:err;
 }
 /******************************************************************************/
-#endif /* __ERRNO_H_C4F00CBE99389CDDE88C03900D7FC85A__ */
+#endif /* __LIB_UTILS_ERRNO_H__ */

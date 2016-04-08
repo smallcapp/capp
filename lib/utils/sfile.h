@@ -1,5 +1,5 @@
-#ifndef __SFILE_H_CAF3737A24BFD00978F62CEB481C30B0__
-#define __SFILE_H_CAF3737A24BFD00978F62CEB481C30B0__
+#ifndef __LIB_UTILS_SFILE_H__
+#define __LIB_UTILS_SFILE_H__
 #ifdef __APP__
 /******************************************************************************/
 static inline FILE *
@@ -546,4 +546,4 @@ os_file_exist(char *file)
 
 /******************************************************************************/
 #endif /* __APP__ */
-#endif /* __SFILE_H_CAF3737A24BFD00978F62CEB481C30B0__ */
+#endif /* __LIB_UTILS_SFILE_H__ */

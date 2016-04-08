@@ -1,5 +1,5 @@
-#ifndef __UM_H_CC431B9A6A7A07C3356E10656BDA3BDD__
-#define __UM_H_CC431B9A6A7A07C3356E10656BDA3BDD__
+#ifndef __LIB_UMD_UMD_H__
+#define __LIB_UMD_UMD_H__
 /******************************************************************************/
 #include "um/um.h"
 
@@ -676,4 +676,4 @@ extern multi_value_t
 umd_gc(struct um_user *user, time_t now);
 #endif
 /******************************************************************************/
-#endif /* __UM_H_CC431B9A6A7A07C3356E10656BDA3BDD__ */
+#endif /* __LIB_UMD_UMD_H__ */

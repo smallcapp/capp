@@ -1,5 +1,5 @@
-#ifndef __OEM_H_73c04e4529ff4f13a6a0d233d4e8d903__
-#define __OEM_H_73c04e4529ff4f13a6a0d233d4e8d903__
+#ifndef __LIB_OEM_OEM_H__
+#define __LIB_OEM_OEM_H__
 /******************************************************************************/
 #ifndef OEM_RSYNC_USER_LEN
 #define OEM_RSYNC_USER_LEN      31
@@ -178,4 +178,4 @@ is_good_oem_type(int type)
 
 DECLARE_FAKE_OEM;
 /******************************************************************************/
-#endif /* __OEM_H_73c04e4529ff4f13a6a0d233d4e8d903__ */
+#endif /* __LIB_OEM_OEM_H__ */

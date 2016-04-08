@@ -1,5 +1,5 @@
-#ifndef __TYPE_H_6BA367A7D4B17C3588DAABDD4B9B396D__
-#define __TYPE_H_6BA367A7D4B17C3588DAABDD4B9B396D__
+#ifndef __LIB_UTILS_TYPE_H__
+#define __LIB_UTILS_TYPE_H__
 /******************************************************************************/
 #ifdef BOOL
 #undef BOOL
@@ -125,4 +125,4 @@ __mv2_return(int control, int result)
 #define mv4_private(_mv)        (_mv).v4.private
 #define mv4_value(_mv)          (_mv).v4.value
 /******************************************************************************/
-#endif /* __TYPE_H_6BA367A7D4B17C3588DAABDD4B9B396D__ */
+#endif /* __LIB_UTILS_TYPE_H__ */

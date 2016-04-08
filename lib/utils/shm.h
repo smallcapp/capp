@@ -1,5 +1,5 @@
-#ifndef __SHM_H_B3E2577A5EA2EF53FBFCE139C3E3B2FD__
-#define __SHM_H_B3E2577A5EA2EF53FBFCE139C3E3B2FD__
+#ifndef __LIB_UTILS_SHM_H__
+#define __LIB_UTILS_SHM_H__
 #ifdef __APP__
 /******************************************************************************/
 #include "utils/base.h"
@@ -111,5 +111,5 @@ os_shm_create(os_shm_t *shm, unsigned int size, bool readonly)
 }
 /******************************************************************************/
 #endif /* __APP__ */
-#endif /* __SHM_H_B3E2577A5EA2EF53FBFCE139C3E3B2FD__ */
+#endif /* __LIB_UTILS_SHM_H__ */
 

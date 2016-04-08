@@ -1,5 +1,5 @@
-#ifndef __MEMORY_H_449CCD8BC1CB461480DB11AD8A1CEB17__
-#define __MEMORY_H_449CCD8BC1CB461480DB11AD8A1CEB17__
+#ifndef __LIB_UTILS_MEMORY_H__
+#define __LIB_UTILS_MEMORY_H__
 /******************************************************************************/
 #ifdef __BOOT__
 #define size_t unsigned int
@@ -228,4 +228,4 @@ os_memmem(const void *haystack, size_t haystacklen,
 #define os_zalloc(_size)            os_calloc(1, _size)
 
 /******************************************************************************/
-#endif /* __MEMORY_H_449CCD8BC1CB461480DB11AD8A1CEB17__ */
+#endif /* __LIB_UTILS_MEMORY_H__ */

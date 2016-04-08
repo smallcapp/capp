@@ -1,5 +1,5 @@
-#ifndef __CMD_H_F3687584F159827DAA20B322924194D1__
-#define __CMD_H_F3687584F159827DAA20B322924194D1__
+#ifndef __LIB_UTILS_CMD_H__
+#define __LIB_UTILS_CMD_H__
 /******************************************************************************/
 #if defined(__APP__) || defined(__BOOT__)
 #ifndef __COMMAND_COUNT
@@ -714,4 +714,4 @@ __simpile_server_handle(simpile_server_t *server[], int count)
 
 #endif /* __APP__ */
 /******************************************************************************/
-#endif /* __CMD_H_F3687584F159827DAA20B322924194D1__ */
+#endif /* __LIB_UTILS_CMD_H__ */

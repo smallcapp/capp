@@ -1,5 +1,5 @@
-#ifndef __TIME_H_1E5C2E2238BA2157D2C85F1285F8A579__
-#define __TIME_H_1E5C2E2238BA2157D2C85F1285F8A579__
+#ifndef __LIB_UTILS_TIME_H__
+#define __LIB_UTILS_TIME_H__
 /******************************************************************************/
 #define time_sec(_ms)       ((_ms)/1000)
 #define time_usec(_ms)      (((_ms) % 1000) * 1000)
@@ -99,4 +99,4 @@ get_full_time(time_t *t)
 #endif
 
 /******************************************************************************/
-#endif /* __TIME_H_1E5C2E2238BA2157D2C85F1285F8A579__ */
+#endif /* __LIB_UTILS_TIME_H__ */

@@ -1,5 +1,5 @@
-#ifndef __OEM1_H_c8474198389e4099b97ae422111bd2c7__
-#define __OEM1_H_c8474198389e4099b97ae422111bd2c7__
+#ifndef __LIB_OEM_OEM1_H__
+#define __LIB_OEM_OEM1_H__
 /******************************************************************************/
 #define OEM1_NAME               "raytight"
 
@@ -352,4 +352,4 @@
     OEM1_LSS_INITER,     \
     OEM1_CERT_INITER)
 /******************************************************************************/
-#endif /* __OEM1_H_c8474198389e4099b97ae422111bd2c7__ */
+#endif /* __LIB_OEM_OEM1_H__ */

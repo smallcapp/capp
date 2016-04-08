@@ -1,5 +1,5 @@
-#ifndef __ENV_H_AE12157DFFE5C6220F9C55AA8D427F7__
-#define __ENV_H_AE12157DFFE5C6220F9C55AA8D427F7__
+#ifndef __LIB_UTILS_ENV_H__
+#define __LIB_UTILS_ENV_H__
 /******************************************************************************/
 #ifndef ENV_DEBUG
 #define ENV_DEBUG   0
@@ -108,4 +108,4 @@ env_number_init(env_number_t *env)
     env->value = get_int_env(env->name, env->deft);
 }
 /******************************************************************************/
-#endif /* __ENV_H_AE12157DFFE5C6220F9C55AA8D427F7__ */
+#endif /* __LIB_UTILS_ENV_H__ */

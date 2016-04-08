@@ -1,5 +1,5 @@
-#ifndef __OEM_API_H_73c04e4529ff4f13a6a0d233d4e8d903__
-#define __OEM_API_H_73c04e4529ff4f13a6a0d233d4e8d903__
+#ifndef __LIB_OEM_OEM_API_H__
+#define __LIB_OEM_OEM_API_H__
 /******************************************************************************/
 #include "oem/oem.h"
 #include "atenv/atenv.h"
@@ -97,4 +97,4 @@ __oem_get(void)
 #define oem_ums_key         __oem_get()->cert.cert[OEM_APP_UMS][OEM_CERT_KEY]
 #define oem_ums_cert        __oem_get()->cert.cert[OEM_APP_UMS][OEM_CERT_CERT]
 /******************************************************************************/
-#endif /* __OEM_API_H_73c04e4529ff4f13a6a0d233d4e8d903__ */
+#endif /* __LIB_OEM_OEM_API_H__ */

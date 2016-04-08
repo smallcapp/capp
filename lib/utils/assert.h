@@ -1,5 +1,5 @@
-#ifndef __ASSERT_H_4F501D5C3D10778EA387560D3B8CB7C0__
-#define __ASSERT_H_4F501D5C3D10778EA387560D3B8CB7C0__
+#ifndef __LIB_UTILS_ASSERT_H__
+#define __LIB_UTILS_ASSERT_H__
 
 #if defined(__BOOT__) || defined(__APP__)
 #define os_assert(_x)           assert(_x)
@@ -9,4 +9,4 @@
 
 #define os_assertV(_x)          (os_assert(0), _x)
 /******************************************************************************/
-#endif /* __ASSERT_H_4F501D5C3D10778EA387560D3B8CB7C0__ */
+#endif /* __LIB_UTILS_ASSERT_H__ */

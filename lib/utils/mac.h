@@ -1,5 +1,5 @@
-#ifndef __MAC_H_F836BDB5B61CB538446562E3E6DD918C__
-#define __MAC_H_F836BDB5B61CB538446562E3E6DD918C__
+#ifndef __LIB_UTILS_MAC_H__
+#define __LIB_UTILS_MAC_H__
 /******************************************************************************/
 #include "number.h"
 
@@ -251,4 +251,4 @@ os_macstring(unsigned char mac[])
 #define ENV_BASEMAC         "__BASEMAC__"
 #endif
 /******************************************************************************/
-#endif /* __MAC_H_F836BDB5B61CB538446562E3E6DD918C__ */
+#endif /* __LIB_UTILS_MAC_H__ */

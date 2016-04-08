@@ -1,5 +1,5 @@
-#ifndef __JLOG_H_1E53C7301905156FEF0817624CC8964D__
-#define __JLOG_H_1E53C7301905156FEF0817624CC8964D__
+#ifndef __LIG_UTILS_JLOG_H__
+#define __LIG_UTILS_JLOG_H__
 #include "utils/jsonapi.h"
 /******************************************************************************/
 #ifndef JLOG_UNIX
@@ -1048,4 +1048,4 @@ jlog_fini(void)
     return 0;
 }
 /******************************************************************************/
-#endif /* __JLOG_H_1E53C7301905156FEF0817624CC8964D__ */
+#endif /* __LIG_UTILS_JLOG_H__ */

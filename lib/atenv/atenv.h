@@ -1,5 +1,5 @@
-#ifndef __ATENV_H_31502FF802B81D17AEDABEB5EDB5C121__
-#define __ATENV_H_31502FF802B81D17AEDABEB5EDB5C121__
+#ifndef __LIB_ATENV_ATENV_H__
+#define __LIB_ATENV_ATENV_H__
 #include "utils.h"
 /******************************************************************************/
 #define AT_DEBUG_SORT           0x01
@@ -2537,4 +2537,4 @@ at_get(char *path)
     return NULL;
 }
 /******************************************************************************/
-#endif /* __ATENV_H_31502FF802B81D17AEDABEB5EDB5C121__ */
+#endif /* __LIB_ATENV_ATENV_H__ */

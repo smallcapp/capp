@@ -1,5 +1,5 @@
-#ifndef __TIMER_H_7354F2DEF84483568CAD93F29E63C88B__
-#define __TIMER_H_7354F2DEF84483568CAD93F29E63C88B__
+#ifndef __LIB_UTILS_TIMER_H__
+#define __LIB_UTILS_TIMER_H__
 /******************************************************************************/
 #ifdef __APP__
 #ifndef TM_MS
@@ -591,4 +591,4 @@ os_timerfd_trigger(int fd)
 
 #endif
 /******************************************************************************/
-#endif /* __TIMER_H_7354F2DEF84483568CAD93F29E63C88B__ */
+#endif /* __LIB_UTILS_TIMER_H__ */

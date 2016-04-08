@@ -1,5 +1,5 @@
-#ifndef __UTILS_H_F5F47009AF9E5B811C77BFEA13C326CB__
-#define __UTILS_H_F5F47009AF9E5B811C77BFEA13C326CB__
+#ifndef __LIB_UTILS_H__
+#define __LIB_UTILS_H__
 /******************************************************************************/
 #ifdef __FASTBOOT__
 #define __BOOT__
@@ -207,4 +207,4 @@ os_main(int (*func)(int, char **), int argc, char **argv)
     return os_call(os_init, os_fini, func, argc, argv);
 }
 /******************************************************************************/
-#endif /* __UTILS_H_F5F47009AF9E5B811C77BFEA13C326CB__ */
+#endif /* __LIB_UTILS_H__ */

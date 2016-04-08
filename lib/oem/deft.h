@@ -1,5 +1,5 @@
-#ifndef __DEFT_H_dfafb40c944041b3a761c040c566329f__
-#define __DEFT_H_dfafb40c944041b3a761c040c566329f__
+#ifndef __LIB_OEM_DEFT_H__
+#define __LIB_OEM_DEFT_H__
 /******************************************************************************/
 #define OEM_NAME    "default"
 #define OEM_MAC     ""
@@ -318,4 +318,4 @@
     OEM_LSS_INITER,     \
     OEM_CERT_INITER)
 /******************************************************************************/
-#endif /* __DEFT_H_dfafb40c944041b3a761c040c566329f__ */
+#endif /* __LIB_OEM_DEFT_H__ */

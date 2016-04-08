@@ -1,5 +1,5 @@
-#ifndef __DUMP_H_202B4E0B91FFA0621EF08DACFCA3681E__
-#define __DUMP_H_202B4E0B91FFA0621EF08DACFCA3681E__
+#ifndef __LIB_UTILS_DUMP_H__
+#define __LIB_UTILS_DUMP_H__
 /******************************************************************************/
 #include "utils/printf.h"
 
@@ -121,4 +121,4 @@ __os_dump_buffer(void *buffer, int len, dump_line_f *dump_line)
     }                                                           \
 }while(0)
 /******************************************************************************/
-#endif /* __DUMP_H_202B4E0B91FFA0621EF08DACFCA3681E__ */
+#endif /* __LIB_UTILS_DUMP_H__ */

@@ -1,5 +1,5 @@
-#ifndef __JSONAPI_H_CC09194D2A11AE7E62D8D3DF836ED121__
-#define __JSONAPI_H_CC09194D2A11AE7E62D8D3DF836ED121__
+#ifndef __LIB_UTILS_JSONAPI_H__
+#define __LIB_UTILS_JSONAPI_H__
 #ifdef __APP__
 #include "json-c/json.h"
 #endif
@@ -542,4 +542,4 @@ jobj_get_leaf(jobj_t obj, ...)
 
 #endif /* __APP__ */
 /******************************************************************************/
-#endif /* __JSONAPI_H_CC09194D2A11AE7E62D8D3DF836ED121__ */
+#endif /* __LIB_UTILS_JSONAPI_H__ */

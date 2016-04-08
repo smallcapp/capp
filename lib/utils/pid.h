@@ -1,5 +1,5 @@
-#ifndef __PID_H_42562550cf614894bf2cdbb430360aa2__
-#define __PID_H_42562550cf614894bf2cdbb430360aa2__
+#ifndef __LIB_UTILS_PID_H__
+#define __LIB_UTILS_PID_H__
 /******************************************************************************/
 #ifdef __APP__
 
@@ -87,4 +87,4 @@ os_deamon_exit(void)
 
 #endif
 /******************************************************************************/
-#endif /* __PID_H_42562550cf614894bf2cdbb430360aa2__ */
+#endif /* __LIB_UTILS_PID_H__ */

@@ -1,5 +1,5 @@
-#ifndef __BASE_H_DF48B466F7D87EDB327C3D4C73E6E4A3__
-#define __BASE_H_DF48B466F7D87EDB327C3D4C73E6E4A3__
+#ifndef __LIB_UTILS_BASE_H__
+#define __LIB_UTILS_BASE_H__
 /******************************************************************************/
 #if defined(__BOOT__) || defined(__APP__)
 #ifndef BUILD_BUG_ON
@@ -388,4 +388,4 @@ typedef struct {
 
 #define OS_KV_INITER(_k, _v)    { .k = _k, .v = _v }
 /******************************************************************************/
-#endif /* __BASE_H_DF48B466F7D87EDB327C3D4C73E6E4A3__ */
+#endif /* __LIB_UTILS_BASE_H__ */

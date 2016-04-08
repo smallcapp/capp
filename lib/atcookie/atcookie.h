@@ -1,5 +1,5 @@
-#ifndef __ATCOOKIE_H_396D23194B7C07C5A9B0653AE7AA5104__
-#define __ATCOOKIE_H_396D23194B7C07C5A9B0653AE7AA5104__
+#ifndef __LIB_ATCOOKIE_ATCOOKIE_H__
+#define __LIB_ATCOOKIE_ATCOOKIE_H__
 /******************************************************************************/
 #include "oem/oem_api.h"
 
@@ -188,4 +188,4 @@ __atcookie_domain_get(char *domain)
 }
 
 /******************************************************************************/
-#endif /* __ATCOOKIE_H_396D23194B7C07C5A9B0653AE7AA5104__ */
+#endif /* __LIB_ATCOOKIE_ATCOOKIE_H__ */

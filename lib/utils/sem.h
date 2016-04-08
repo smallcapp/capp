@@ -1,5 +1,5 @@
-#ifndef __SEM_H_EF321BBA18F9C8C9E4977949EC03D97E__
-#define __SEM_H_EF321BBA18F9C8C9E4977949EC03D97E__
+#ifndef __LIB_UTILS_SEM_H__
+#define __LIB_UTILS_SEM_H__
 #ifdef __APP__
 /******************************************************************************/
 typedef struct {
@@ -115,5 +115,5 @@ os_sem_create(os_sem_t *sem, int key)
 }
 /******************************************************************************/
 #endif /* __APP__ */
-#endif /* __SEM_H_EF321BBA18F9C8C9E4977949EC03D97E__ */
+#endif /* __LIB_UTILS_SEM_H__ */
 

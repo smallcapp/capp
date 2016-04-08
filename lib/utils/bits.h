@@ -1,5 +1,5 @@
-#ifndef __BITS_H_92033DEDA810AF54224FF623B3115513__
-#define __BITS_H_92033DEDA810AF54224FF623B3115513__
+#ifndef __LIB_UTILS_BITS_H__
+#define __LIB_UTILS_BITS_H__
 /******************************************************************************/
 #ifndef __os_align
 #define __os_align(_x, _align)      ((((_x)+(_align)-1)/(_align))*(_align))
@@ -139,4 +139,4 @@ os_bitmap_isset(os_bitmap_t *bmp, int bit)
     }
 }
 /******************************************************************************/
-#endif /* __BITS_H_92033DEDA810AF54224FF623B3115513__ */
+#endif /* __LIB_UTILS_BITS_H__ */

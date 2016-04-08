@@ -1,5 +1,5 @@
-#ifndef __AT_DOG_H_DE28C2611313B5650AF7DB2BFB5828D4__
-#define __AT_DOG_H_DE28C2611313B5650AF7DB2BFB5828D4__
+#ifndef __APP_ATDOG_ATDOG_H__
+#define __APP_ATDOG_ATDOG_H__
 /******************************************************************************/
 #define AT_REG_DEBUG    0
 
@@ -103,4 +103,4 @@ enum {
     AT_OTP_CUSTOMER = (AT_OTP + 0x2C0),
 };
 /******************************************************************************/
-#endif /* __AT_DOG_H_DE28C2611313B5650AF7DB2BFB5828D4__ */
+#endif /* __APP_ATDOG_ATDOG_H__ */

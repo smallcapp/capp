@@ -1,5 +1,5 @@
-#ifndef __BOOTM_H__
-#define __BOOTM_H__
+#ifndef __APP_BOOTM_BOOTM_H__
+#define __APP_BOOTM_BOOTM_H__
 /******************************************************************************/
 #ifndef AT_ENV_LINE_SIZE
 #define AT_ENV_LINE_SIZE        128
@@ -152,4 +152,4 @@
 
 #define CONFIG_BOOTCOMMAND "mmc read 0 0x1000000 0x6800 0x4000;bootm 0x1000000"
 /******************************************************************************/
-#endif
+#endif /* __APP_BOOTM_BOOTM_H__ */

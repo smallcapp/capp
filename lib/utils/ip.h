@@ -1,5 +1,5 @@
-#ifndef __IP_H_46F65504978D5AD68BA98D390A65EB49__
-#define __IP_H_46F65504978D5AD68BA98D390A65EB49__
+#ifndef __LIB_UTILS_IP_H__
+#define __LIB_UTILS_IP_H__
 /******************************************************************************/
 #ifndef OS_IPSTRINGLEN
 #define OS_IPSTRINGLEN              15
@@ -26,4 +26,4 @@ os_ipmatch(uint32_t ipa, uint32_t ipb, uint32_t mask)
     return (ipa & mask)==(ipb & mask);
 }
 /******************************************************************************/
-#endif /* __IP_H_46F65504978D5AD68BA98D390A65EB49__ */
+#endif /* __LIB_UTILS_IP_H__ */

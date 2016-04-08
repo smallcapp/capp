@@ -1,5 +1,5 @@
-#ifndef __BCOOKIE_H_31502FF802B81D17AEDABEB5EDB5C121__
-#define __BCOOKIE_H_31502FF802B81D17AEDABEB5EDB5C121__
+#ifndef __LIB_ATENV_BCOOKIE_H__
+#define __LIB_ATENV_BCOOKIE_H__
 #include "atenv/atenv.h"
 /******************************************************************************/
 enum {
@@ -331,4 +331,4 @@ bcookie_save(struct bcookie *obj, int size)
 #endif
 
 /******************************************************************************/
-#endif /* __BCOOKIE_H_31502FF802B81D17AEDABEB5EDB5C121__ */
+#endif /* __LIB_ATENV_BCOOKIE_H__ */

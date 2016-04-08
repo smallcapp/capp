@@ -1,5 +1,5 @@
-#ifndef __LIST_H_59AC23A3758C993B7E60F02F5C35CFEC__
-#define __LIST_H_59AC23A3758C993B7E60F02F5C35CFEC__
+#ifndef __APP_NATLOG_HASH_LIST_H__
+#define __APP_NATLOG_HASH_LIST_H__
 /******************************************************************************/
 /*
  * Simple doubly linked list implementation.
@@ -742,4 +742,4 @@ static inline void hlist_move_list(struct hlist_head *old,
 	     pos = hlist_entry_safe(n, typeof(*pos), member))
 
 /******************************************************************************/
-#endif /* __LIST_H_59AC23A3758C993B7E60F02F5C35CFEC__ */
+#endif /* __APP_NATLOG_HASH_LIST_H__ */

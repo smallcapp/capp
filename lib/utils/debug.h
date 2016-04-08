@@ -1,5 +1,5 @@
-#ifndef __DEBUG_H_E3D558ADAC195223DC447321A03A7DEC__
-#define __DEBUG_H_E3D558ADAC195223DC447321A03A7DEC__
+#ifndef __LIB_UTILS_DEBUG_H__
+#define __LIB_UTILS_DEBUG_H__
 /******************************************************************************/
 #ifdef __APP__
 
@@ -232,4 +232,4 @@ os_setup_signal_callstack(void (*handle)(int signo))
 #define os_setup_signal_callstack(_handle)  os_do_nothing()
 #endif /* __APP__ */
 /******************************************************************************/
-#endif /* __DEBUG_H_E3D558ADAC195223DC447321A03A7DEC__ */
+#endif /* __LIB_UTILS_DEBUG_H__ */

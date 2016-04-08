@@ -1,5 +1,5 @@
-#ifndef __PRINTF_H_6115A6C5DFF707CC6D8400E2B7190543__
-#define __PRINTF_H_6115A6C5DFF707CC6D8400E2B7190543__
+#ifndef __LIB_UTILS_PRINTF_H__
+#define __LIB_UTILS_PRINTF_H__
 /******************************************************************************/
 #if defined(__BOOT__) || defined(__APP__)
 #define os_printf(_fmt, _args...)               printf(_fmt, ##_args)
@@ -253,4 +253,4 @@ os_system(const char *fmt, ...)
 }
 #endif /* __APP__ */
 /******************************************************************************/
-#endif /* __PRINTF_H_6115A6C5DFF707CC6D8400E2B7190543__ */
+#endif /* __LIB_UTILS_PRINTF_H__ */

@@ -1,5 +1,5 @@
-#ifndef __STIMER_H_03B9C4BFCDC8EF03E5E39A08D5201373__
-#define __STIMER_H_03B9C4BFCDC8EF03E5E39A08D5201373__
+#ifndef __LIB_STIMER_STIMER_H__
+#define __LIB_STIMER_STIMER_H__
 /******************************************************************************/
 #include "utils.h"
 /******************************************************************************/
@@ -75,4 +75,4 @@ get_stimer_timeout_env(void)
     return get_int_env(ENV_STIMER_TIMEOUT, STIMER_TIMEOUT);
 }
 /******************************************************************************/
-#endif /* __STIMER_H_03B9C4BFCDC8EF03E5E39A08D5201373__ */
+#endif /* __LIB_STIMER_STIMER_H__ */

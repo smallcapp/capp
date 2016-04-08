@@ -1,5 +1,5 @@
-#ifndef __STRING_H_EBBADBD33FD514F013D3D84007A20302__
-#define __STRING_H_EBBADBD33FD514F013D3D84007A20302__
+#ifndef __LIB_UTILS_STRING_H__
+#define __LIB_UTILS_STRING_H__
 /******************************************************************************/
 #ifndef __empty
 #define __empty         ""
@@ -963,4 +963,4 @@ struct string_kv {
 #define STRING_KV   __STRING_KV(NULL, 0, NULL, 0)
 
 /******************************************************************************/
-#endif /* __STRING_H_EBBADBD33FD514F013D3D84007A20302__ */
+#endif /* __LIB_UTILS_STRING_H__ */

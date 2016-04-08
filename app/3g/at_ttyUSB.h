@@ -1,5 +1,5 @@
-#ifndef __AT_TTYUSB_H_04c8447f0f5e440ea3bdf0cfc2a27949__
-#define __AT_TTYUSB_H_04c8447f0f5e440ea3bdf0cfc2a27949__
+#ifndef __APP_AT_TTYUSB_H__
+#define __APP_AT_TTYUSB_H__
 
 static inline void serial_init(int fd)
 {
@@ -66,4 +66,4 @@ static inline int at_ttyUSB_main(int argc, char *argv[])
 
 	return 0;
 }
-#endif /* __AT_TTYUSB_H_04c8447f0f5e440ea3bdf0cfc2a27949__ */
+#endif /* __APP_AT_TTYUSB_H__ */

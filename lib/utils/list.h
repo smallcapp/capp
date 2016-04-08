@@ -1,5 +1,5 @@
-#ifndef __LIST_H_59AC23A3758C993B7E60F02F5C35CFEC__
-#define __LIST_H_59AC23A3758C993B7E60F02F5C35CFEC__
+#ifndef __LIB_UTILS_LIST_H__
+#define __LIB_UTILS_LIST_H__
 /******************************************************************************/
 /* 
 * copy/modify from linux-3.7.1 
@@ -749,4 +749,4 @@ static inline void hlist_move_list(struct hlist_head *old,
 
 #include "list2.h"
 /******************************************************************************/
-#endif /* __LIST_H_59AC23A3758C993B7E60F02F5C35CFEC__ */
+#endif /* __LIB_UTILS_LIST_H__ */

@@ -1,5 +1,5 @@
-#ifndef __AT_OTP_H_739039F132EB8833CE84495D183364C7__
-#define __AT_OTP_H_739039F132EB8833CE84495D183364C7__
+#ifndef __LIB_ATOTP_ATOTP_H__
+#define __LIB_ATOTP_ATOTP_H__
 #include "atenv/atenv.h"
 
 #ifdef __APP__
@@ -445,4 +445,4 @@ at_otp_private_write(unsigned char val[AT_OTP_SIZE])
 }
 /******************************************************************************/
 #endif /* __APP__ */
-#endif /* __AT_OTP_H_739039F132EB8833CE84495D183364C7__ */
+#endif /* __LIB_ATOTP_ATOTP_H__ */

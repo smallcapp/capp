@@ -1,5 +1,5 @@
-#ifndef __LIST2_H_db28ba3d004741668e4ee130c2803b69__
-#define __LIST2_H_db28ba3d004741668e4ee130c2803b69__
+#ifndef __LIB_UTILS_LIST2_H__
+#define __LIB_UTILS_LIST2_H__
 /******************************************************************************/
 static inline bool
 is_in_list(struct list_head *node)
@@ -367,4 +367,4 @@ clist_unpick(struct clist_table *table, struct clist_node *node)
 #endif
 
 /******************************************************************************/
-#endif /* __LIST2_H_db28ba3d004741668e4ee130c2803b69__ */
+#endif /* __LIB_UTILS_LIST2_H__ */

@@ -1,5 +1,5 @@
-#ifndef __SOCKER_H_57D7F25D001BCACE4176C0413941359C__
-#define __SOCKER_H_57D7F25D001BCACE4176C0413941359C__
+#ifndef __LIB_UTILS_SOCKER_H__
+#define __LIB_UTILS_SOCKER_H__
 #ifdef __APP__
 /******************************************************************************/
 typedef union {
@@ -82,4 +82,4 @@ os_sockaddr_len(struct sockaddr *addr)
 }
 /******************************************************************************/
 #endif
-#endif /* __SOCKER_H_57D7F25D001BCACE4176C0413941359C__ */
+#endif /* __LIB_UTILS_SOCKER_H__ */
