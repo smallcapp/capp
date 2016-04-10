@@ -132,50 +132,6 @@ __cb(struct um_user *user, char *action, int (*cb)(jobj_t obj))
 }
 
 static int
-delete_cb(struct um_user *user)
-{
-    return __cb(user, "delete", NULL);
-}
-
-static int
-create_cb(struct um_user *user)
-{
-    return __cb(user, "create", NULL);
-}
-
-#if UM_USE_MONITOR
-static int
-enter_cb(struct um_user *user)
-{
-    return __cb(user, "enter", NULL);
-}
-
-static int
-leave_cb(struct um_user *user)
-{
-    return __cb(user, "leave", NULL);
-}
-#endif
-
-static int
-bind_cb(struct um_user *user)
-{
-    return __cb(user, "bind", NULL);
-}
-
-static int
-unbind_cb(struct um_user *user)
-{
-    return __cb(user, "unbind", NULL);
-}
-
-static int
-auth_cb(struct um_user *user)
-{
-    return __cb(user, "auth", NULL);
-}
-
-static int
 reauth_cb(struct um_user *user)
 {
     return __cb(user, "reauth", lanmbda(int, (jobj_t obj) {
@@ -183,12 +139,6 @@ reauth_cb(struct um_user *user)
 
         return 0;
     }));
-}
-
-static int
-deauth_cb(struct um_user *user)
-{
-    return __cb(user, "deauth", NULL);
 }
 
 static int
@@ -629,7 +579,9 @@ __user_unbind(struct um_user *user, int reason, event_cb_t *cb)
 {
     int err = 0;
 
-    err = __user_deauth(user, reason, deauth_cb);
+    err = __user_deauth(user, reason, lanmbda(int, (struct um_user *user) {
+        return __cb(user, "deauth", NULL);
+    }));
     if (err) {
         return err;
     }
@@ -705,7 +657,9 @@ __user_bind(struct um_user *user, uint32_t ip, event_cb_t *cb)
         if (ip==user->ip) {
             return user;
         } else {
-            __user_unbind(user, UM_DEAUTH_AUTO, unbind_cb);
+            __user_unbind(user, UM_DEAUTH_AUTO, lanmbda(int, (struct um_user *user) {
+                return __cb(user, "unbind", NULL);
+            }));
         }
     }
 
@@ -786,7 +740,9 @@ __user_auth(struct um_user *user, int group, jobj_t obj, event_cb_t *cb)
             return NULL;
         }
         else {
-            __user_bind(user, inet_addr(ipaddress), bind_cb);
+            __user_bind(user, inet_addr(ipaddress), lanmbda(int, (struct um_user *user) {
+                return __cb(user, "bind", NULL);
+            }));
         }
     }
 
@@ -852,34 +808,44 @@ user_create(unsigned char mac[])
 int
 user_delete(struct um_user *user)
 {
-    return __user_delete(user, delete_cb);
+    return __user_delete(user, lanmbda(int, (struct um_user *user) {
+        return __cb(user, "delete", NULL);
+    }));
 }
 
 #if UM_USE_MONITOR
 static struct um_user *
 user_enter(struct um_user *user, jobj_t obj)
 {
-    return __user_enter(user, obj, enter_cb);
+    return __user_enter(user, obj, lanmbda(int, (struct um_user *user) {
+        return __cb(user, "enter", NULL);
+    }));
 }
 
 static int
 user_leave(struct um_user *user)
 {
-    return __user_leave(user, leave_cb);
+    return __user_leave(user, lanmbda(int, (struct um_user *user) {
+        return __cb(user, "leave", NULL);
+    }));
 }
 #endif
 
 static struct um_user *
 user_bind(struct um_user *user, uint32_t ip)
 {
-    return __user_bind(user, ip, bind_cb);
+    return __user_bind(user, ip, lanmbda(int, (struct um_user *user) {
+        return __cb(user, "bind", NULL);
+    }));
 }
 
 int
 user_unbind(struct um_user *user, int reason)
 {
     if (is_valid_deauth_reason(reason)) {
-        return __user_unbind(user, reason, unbind_cb);
+        return __user_unbind(user, reason, lanmbda(int, (struct um_user *user) {
+            return __cb(user, "unbind", NULL);
+        }));
     } else {
         return -EBADREASON;
     }
@@ -888,7 +854,9 @@ user_unbind(struct um_user *user, int reason)
 static struct um_user *
 user_auth(struct um_user *user, int group, jobj_t obj)
 {
-    return __user_auth(user, group, obj, auth_cb);
+    return __user_auth(user, group, obj, lanmbda(int, (struct um_user *user) {
+        return __cb(user, "auth", NULL);
+    }));
 }
 
 int 
@@ -901,7 +869,9 @@ int
 user_deauth(struct um_user *user, int reason)
 {
     if (is_valid_deauth_reason(reason)) {
-        return __user_deauth(user, reason, deauth_cb);
+        return __user_deauth(user, reason, lanmbda(int, (struct um_user *user) {
+            return __cb(user, "deauth", NULL);
+        }));
     } else {
         return -EBADREASON;
     }
